@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "71172604688",
+    "project_id": "tvtime-12ec5",
+    "storage_bucket": "tvtime-12ec5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71172604688:android:b2c1a77741d7e556845b95",
+        "android_client_info": {
+          "package_name": "com.example.tvtime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71172604688-ok7g6lj4p725cfne2l1s02eerhjoe7f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhx-RvmoW1JpQNcwYkV4yqTPRuUnJ0o-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71172604688-ok7g6lj4p725cfne2l1s02eerhjoe7f5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
