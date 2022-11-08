@@ -3,22 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_discover">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_login"
+        android:name="com.example.tvtime.ui.login.LoginFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_login" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_discover"
         android:name="com.example.tvtime.ui.discover.DiscoverFragment"
         android:label="@string/menu_discover"
         tools:layout="@layout/fragment_discover" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_series"
         android:name="com.example.tvtime.ui.series.SeriesFragment"
         android:label="@string/menu_series"
         tools:layout="@layout/fragment_series" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_movies"
         android:name="com.example.tvtime.ui.movies.MoviesFragment"
         android:label="@string/menu_movies"
         tools:layout="@layout/fragment_movies" />

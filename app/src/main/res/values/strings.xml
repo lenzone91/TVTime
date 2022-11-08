@@ -10,4 +10,27 @@
     <string name="menu_series">Séries</string>
     <string name="menu_movies">Films</string>
     <string name="menu_discover">Découvrir</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="connection_succeed">"Connection succed!"</string>
+    <string name="error_no_internet">"No internet"</string>
+    <string name="error_unknown_error">"Error ! Unknown error"</string>
+    <string name="error_authentication_canceled">"Authentification canceled"</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="menu_login">Connexion</string>
+    <string name="button_login_text_logged">View Main</string>
+    <string name="button_login_text_not_logged">Connexion</string>
+
+    <string name="info_no_email_found">Email not found</string>
+    <string name="info_no_username_found">Username not found</string>
+
+    <string name="text_input_username">Username</string>
+    <string name="text_view_email">Email</string>
+    <string name="check_box_is_mentor">Admin</string>
+    <string name="button_update_account">Update account</string>
+    <string name="button_sign_out_account">Sign out</string>
+    <string name="button_delete_account">Delete account</string>
 </resources>

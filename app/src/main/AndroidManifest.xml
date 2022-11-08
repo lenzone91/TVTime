@@ -27,6 +27,11 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".ui.profile.ProfileActivity"
+            android:label="ProfileActivity"
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleInstance"/>
+
     </application>
 
 </manifest>

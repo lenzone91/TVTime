@@ -2,14 +2,23 @@ package com.example.tvtime;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 
+import com.example.tvtime.ui.discover.DiscoverFragment;
+import com.example.tvtime.ui.login.LoginFragment;
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,16 +32,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.example.tvtime.user.UserManager;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private UserManager userManager = UserManager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://tvtime-12ec5-default-rtdb.europe-west1.firebasedatabase.app/");
         DatabaseReference myRef = database.getReference("message");
 
@@ -54,22 +68,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        userManager.logOut();
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(userManager.isCurrentUserLogged()){
+            DrawerLayout drawer = binding.drawerLayout;
+            NavigationView navigationView = binding.navView;
+            // Passing each menu ID as a set of Ids because each
+            // menu should be considered as top level destinations.
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_series, R.id.nav_movies, R.id.nav_discover)
+                    .setOpenableLayout(drawer)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
+        }
     }
 
     @Override
@@ -85,4 +110,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+
 }
